@@ -3,40 +3,20 @@ import Navbar from "./Nav";
 import Button from "./Button";
 import './style.css'
 
-const HomeUser = () => {
+const HomeUser = ({employees}) => {
   return (
     <div>
       <Navbar />
       <h1 style={{ textAlign: "center" }}>
-        Generation Thailand Home - Seclector
+        Generation Thailand Home - Selector
       </h1>
       <Button />
-      <DisplayTable />
+      <DisplayTable employees={employees}/>
     </div>
   );
 };
 
-const DisplayTable = () => {
-  const mockEmployees = [
-    {
-      id: 0,
-      name: "mock",
-      lastname: "mocklastname",
-      position: "Manager",
-    },
-    {
-      id: 1,
-      name: "employee 1",
-      lastname: "em",
-      position: "Engineer",
-    },
-    {
-      id: 2,
-      name: "employee 2",
-      lastname: "lord",
-      position: "Designer",
-    },
-  ];
+const DisplayTable = ({employees}) => {
   return (
     <div className="table">
       <table>
@@ -48,7 +28,7 @@ const DisplayTable = () => {
           </tr>
         </thead>
         <tbody>
-          {mockEmployees.map((employee) => {
+          {employees.map((employee) => {
             return (
               <tr key={employee.id}>
                 <td>{employee.name}</td>

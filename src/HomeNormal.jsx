@@ -9,7 +9,7 @@ const HomeNormal = () => {
       {/* Head */}
       <div className="headHomeNormal">
         <h1>Generation Thailand</h1>
-        <h1> Reac - Assessment</h1>
+        <h1> React - Assessment</h1>
       </div>
 
       {/* Button */}

@@ -1,17 +1,8 @@
 import React, { useState } from "react";
 import Navbar from "./Nav";
 import Button from "./Button";
-import DisplayTable from "./DisplayTable";
 
-const HomeAdmin = () => {
-  const [members, setMembers] = useState([]);
-
-  const handleDeleteMember = (index) => {
-    const updatedMembers = [...members];
-    updatedMembers.splice(index, 1);
-    setMembers(updatedMembers);
-  };
-
+const HomeAdmin = ({ employees, onCreate, onDelete }) => {
   return (
     <div>
       <Navbar />
@@ -20,7 +11,7 @@ const HomeAdmin = () => {
         <h1>Home - Admin Sector</h1>
       </div>
       <Button />
-      <CreateUser members={members} setMembers={setMembers} />
+      <CreateUser onCreate={onCreate} />
       <div className="createNewMember">
         <table>
           <thead>
@@ -32,16 +23,19 @@ const HomeAdmin = () => {
             </tr>
           </thead>
           <tbody>
-            {members.map((member, index) => (
-              <tr key={index}>
+            {employees.map((member) => (
+              <tr key={member.id}>
                 <td>{member.name}</td>
-                <td>{member.lastName}</td>
+                <td>{member.lastname}</td>
                 <td>{member.position}</td>
                 <td>
-                  <button onClick={() => handleDeleteMember(index)}>
+                  <button
+                    className="deleteButton"
+                    onClick={() => onDelete(member.id)}
+                  >
                     Delete
                   </button>
-                </td>{" "}
+                </td>
                 {/* เพิ่มปุ่ม Delete */}
               </tr>
             ))}
@@ -52,18 +46,29 @@ const HomeAdmin = () => {
   );
 };
 
-const CreateUser = ({ members, setMembers }) => {
+const CreateUser = ({ onCreate }) => {
   const [name, setName] = useState("");
   const [lastName, setLastName] = useState("");
   const [position, setPosition] = useState("");
 
   const handleSubmitMemberData = () => {
-    const newMember = {
+    if (name === "") {
+      alert("Please Enter Name!");
+      return;
+    } else if (lastName === "") {
+      alert("Please Enter LastName!");
+      return;
+    } else if (position === "") {
+      alert("Please Enter Position!");
+      return;
+    }
+
+    const employee = {
       name,
-      lastName,
+      lastname: lastName,
       position,
     };
-    setMembers([...members, newMember]);
+    onCreate(employee);
     setName("");
     setLastName("");
     setPosition("");
@@ -91,7 +96,9 @@ const CreateUser = ({ members, setMembers }) => {
           value={position}
           onChange={(ev) => setPosition(ev.target.value)}
         ></input>
-        <button onClick={handleSubmitMemberData}>Save</button>
+        <button className="saveButton" onClick={handleSubmitMemberData}>
+          Save
+        </button>
       </div>
     </div>
   );

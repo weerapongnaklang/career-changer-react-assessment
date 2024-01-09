@@ -42,13 +42,11 @@ a {
   margin-top: 20px;
 }
 
-.button {
+.buttonSelector{
   display: flex;
-  margin-right: auto;
-  margin-left: auto;
 }
 
-button {
+.buttonSelector button{
   padding: 5px;
   text-align: center;
   margin: 5px;
@@ -59,6 +57,25 @@ button {
   border-radius: 5px;
   margin-top: 50px;
 }
+
+.deleteButton {
+  border: 1px solid black;
+  padding: 5px;
+  border-radius: 5px;
+  background-color: brown;
+  color: white;
+  font-weight: bold;
+}
+.saveButton {
+  border: 1px solid black;
+  padding: 10px;
+  border-radius: 5px;
+  background-color: darkgreen;
+  color: white;
+  font-weight: bold;
+}
+
+
 
 table {
   margin: auto;
@@ -81,11 +98,11 @@ td {
 
 .createUser {
   color: brown;
- 
+  text-align: center;
 }
 
 input {
-  color: #ddd;
+  color: darkred;
   border: 1px solid gray;
   margin: 5px;
   padding: 10px;
@@ -93,11 +110,11 @@ input {
 }
 
 .headUserInput {
-  display: flex;
+  
  
 }
 
 .inputCreate {
-  justify-content: space-between;
+  
 }
 

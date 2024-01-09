@@ -1,14 +1,15 @@
 import React from "react";
 import "./style.css";
+import { Link } from "react-router-dom";
 
 function Button() {
   return (
-    <div className="button">
+    <div className="buttonSelector">
       <button>
-        <a href={"/homeuser"}>User Home Selector</a>
+        <Link to={"/homeuser"}>User Home Selector</Link>
       </button>
       <button>
-        <a href={"/homeadmin"}>Admin Home Selector</a>
+        <Link to={"/homeadmin"}>Admin Home Selector</Link>
       </button>
     </div>
   );
