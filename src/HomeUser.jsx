@@ -18,7 +18,7 @@ const HomeUser = ({employees}) => {
 
 const DisplayTable = ({employees}) => {
   return (
-    <div className="table">
+    <div className="tableData">
       <table>
         <thead>
           <tr>
