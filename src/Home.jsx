@@ -23,11 +23,11 @@ const Home = () => {
 
   return (
     <div>
-
+      {mockEmployees}
     </div>
   )
 }
 
 
 
-export default Home
+export default Home;
